@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""index module"""
+"""index module of the proyect Api Restfull Holberton"""
 from api.v1.views import app_views
 from models import storage
 from models.amenity import Amenity
@@ -13,11 +13,13 @@ from flask import jsonify
 
 @app_views.route('/status', strict_slashes=False)
 def return_status():
+    """"""
     return ({"status": "OK"})
 
 
 @app_views.route('/stats', strict_slashes=False)
 def count_():
+    """"""
     dictionary = {
         "amenities": storage.count(Amenity),
         "cities": storage.count(City),

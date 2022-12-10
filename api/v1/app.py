@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Api"""
+"""Api module of the proyect Api Restfull Holberton"""
 
 from flask import Flask, jsonify
 from models import storage
@@ -12,11 +12,13 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def close(exe):
+    """"""
     storage.close()
 
 
 @app.errorhandler(404)
 def error_handler_404(exe):
+    """"""
     return jsonify({"error": "Not found"}), 404
 
 
