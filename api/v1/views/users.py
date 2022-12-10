@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""states module"""
+"""Users module of the proyect Api Restfull Holberton"""
 
 from flask import Flask, jsonify, abort, request
 from api.v1.views import app_views
