@@ -17,7 +17,7 @@ def get_all_places(city_id):
     city = storage.get(City, city_id)
     if city is None:
         abort(404)
-    for place in city:
+    for place in city.places:
         _list.append(place.to_dict())
     return jsonify(_list)
 
@@ -34,7 +34,7 @@ def get_obj_places(place_id):
 
 @app_views.route('/places/<place_id>', methods=['DELETE'],
                  strict_slashes=False)
-def delete_an_obj(place_id):
+def delete_a_place(place_id):
     """Delete a Place object"""
     for obj in storage.all(Place).values():
         if obj.id == place_id:
@@ -46,7 +46,7 @@ def delete_an_obj(place_id):
 
 @app_views.route('/cities/<city_id>/places',
                  methods=['POST'], strict_slashes=False)
-def create_an_obj(city_id):
+def create_a_place(city_id):
     """Creates a Place"""
     city = storage.get(City, city_id)
     if city is None:
@@ -68,7 +68,7 @@ def create_an_obj(city_id):
 
 
 @app_views.route('places/<place_id>', methods=['PUT'], strict_slashes=False)
-def update_an_obj(place_id):
+def update_a_place(place_id):
     """Updates a Place object"""
     stt = storage.get(Place, place_id)
     if not stt:
