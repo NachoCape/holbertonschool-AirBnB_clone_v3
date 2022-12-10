@@ -63,7 +63,7 @@ def create_a_place(city_id):
         abort(404)
     obj = Place(**data)
     storage.new(obj)
-    storage.save()
+    obj.save()
     return jsonify(obj.to_dict()), 201
 
 
