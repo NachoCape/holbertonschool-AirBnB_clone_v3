@@ -125,7 +125,7 @@ class TestFileStorage(unittest.TestCase):
         dictionary = storage.all()
         state2.save()
         size2 = len(dictionary)
-        self.assertNotEqual(size1, size2)
+        self.assertTrue(size1 < size2)
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_get(self):
